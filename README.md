@@ -5,7 +5,7 @@
 [![](https://github.com/stimulus-components/stimulus-scroll-reveal/workflows/Lint/badge.svg)](https://github.com/stimulus-components/stimulus-scroll-reveal)
 [![](https://github.com/stimulus-components/stimulus-scroll-reveal/workflows/Test/badge.svg)](https://github.com/stimulus-components/stimulus-scroll-reveal)
 [![](https://img.shields.io/github/license/stimulus-components/stimulus-scroll-reveal.svg)](https://github.com/stimulus-components/stimulus-scroll-reveal)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d62d950e-aae7-464d-8333-1078a16ec481/deploy-status)](https://stimulus-scroll-reveal.netlify.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/95f25f38-cc08-41e5-8cb7-ee19eba62499/deploy-status)](https://stimulus-scroll-reveal.netlify.com)
 
 ## Getting started
 
