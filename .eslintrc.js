@@ -4,11 +4,6 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true,
-    jest: true
-  },
-
-  globals: {
-    page: 'readonly'
+    es6: true
   }
 }
