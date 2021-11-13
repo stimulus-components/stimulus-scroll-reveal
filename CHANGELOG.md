@@ -6,11 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2021-11-13
+
+### Chore
+
+- **Breaking** Upgrading Stimulus to `3.x` and change namespace from `stimulus` to `@hotwired/stimulus`.
+- Upgrading dependencies
+- Upgrading Node to 14.18.0
+
 ## [2.0.0] - 2021-05-18
 
 ### Chore
 
 - Moving from [Snowpack](https://www.snowpack.dev/) to [Vite](https://github.com/vitejs/vite)
+- Using stimulus as external library reducing bundle size.
 - Upgrading Node to 14.16.1
 - Moving to TypeScript
 
