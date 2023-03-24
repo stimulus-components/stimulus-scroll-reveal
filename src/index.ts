@@ -46,7 +46,7 @@ export default class extends Controller {
     entries.forEach(entry => {
       if (entry.intersectionRatio > this.threshold) {
         const target = entry.target as HTMLElement
-        target.classList.add(this.class)
+        target.classList.add(...this.class.split(' '))
 
         if (target.dataset.delay) {
           target.style.transitionDelay = target.dataset.delay
