@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2023-03-24
+
+### Added
+
+- Allow multiple `class` in `data-scroll-reveal-class-value`. Example: `data-scroll-reveal-class-value="in fade"`.
+
+
 ## [3.1.0] - 2022-12-25
 
 ### Added
