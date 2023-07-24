@@ -14,6 +14,7 @@ export default class extends Controller {
   class: string
   threshold: number
   rootMargin: string
+  isInitialized: boolean
   observer: IntersectionObserver
 
   itemTargets: HTMLElement[]
@@ -26,6 +27,7 @@ export default class extends Controller {
   }
 
   initialize (): void {
+    this.isInitialized = false
     this.intersectionObserverCallback = this.intersectionObserverCallback.bind(this)
   }
 
@@ -36,10 +38,12 @@ export default class extends Controller {
 
     this.observer = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions)
     this.itemTargets.forEach(item => this.observer.observe(item))
+    this.isInitialized = true
   }
 
   disconnect (): void {
     this.itemTargets.forEach(item => this.observer.unobserve(item))
+    this.observer.disconnect()
   }
 
   intersectionObserverCallback (entries: IntersectionObserverEntry[], observer: IntersectionObserver): void {
@@ -55,6 +59,12 @@ export default class extends Controller {
         observer.unobserve(target)
       }
     })
+  }
+
+  itemTargetConnected() {
+    if (this.isInitialized) {
+      this.itemTargets.forEach(item => this.observer.observe(item))
+    }
   }
 
   get intersectionObserverOptions (): IntersectionObserverInit {
