@@ -38,7 +38,7 @@
     "autoprefixer": "^10.4.14",
     "np": "^7.6.4",
     "postcss": "^8.4.21",
-    "prettier-standard": "16.4.1",
+    "prettier-standard": "16.3.0",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.4",
     "vite": "^4.2.1"

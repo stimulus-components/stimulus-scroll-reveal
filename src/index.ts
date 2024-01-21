@@ -4,16 +4,19 @@ interface Option {
   class?: string
   threshold?: number
   rootMargin?: string
+  toggle?: boolean
 }
 
 export default class extends Controller {
   classValue: string
   thresholdValue: number
   rootMarginValue: string
+  toggleValue: boolean
 
   class: string
   threshold: number
   rootMargin: string
+  toggle: boolean
   observer: IntersectionObserver
 
   itemTargets: HTMLElement[]
@@ -22,7 +25,8 @@ export default class extends Controller {
   static values = {
     class: String,
     threshold: Number,
-    rootMargin: String
+    rootMargin: String,
+    toggle: Boolean
   }
 
   initialize (): void {
@@ -33,6 +37,7 @@ export default class extends Controller {
     this.class = this.classValue || this.defaultOptions.class || 'in'
     this.threshold = this.thresholdValue || this.defaultOptions.threshold || 0.1
     this.rootMargin = this.rootMarginValue || this.defaultOptions.rootMargin || '0px'
+    this.toggle = this.toggleValue || this.defaultOptions.toggle || false
 
     this.observer = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions)
     this.itemTargets.forEach(item => this.observer.observe(item))
@@ -44,15 +49,21 @@ export default class extends Controller {
 
   intersectionObserverCallback (entries: IntersectionObserverEntry[], observer: IntersectionObserver): void {
     entries.forEach(entry => {
+      const target = entry.target as HTMLElement
       if (entry.intersectionRatio > this.threshold) {
-        const target = entry.target as HTMLElement
         target.classList.add(...this.class.split(' '))
 
         if (target.dataset.delay) {
           target.style.transitionDelay = target.dataset.delay
         }
 
-        observer.unobserve(target)
+        if (!this.toggle) {
+          observer.unobserve(target)
+        }
+      }
+
+      if (this.toggle && (entry.intersectionRatio < this.threshold || !entry.isIntersecting)) {
+        target.classList.remove(...this.class.split(' '))
       }
     })
   }
